@@ -8,19 +8,21 @@ import { LandingPage } from  "./pages/LandingPage";
 export function App() {
   return (
     <Router>
-      <header>
+      <header><nav>
         <Link to="/">
           <h1 className={styles.title}>Movies</h1>
         </Link>
+        <Link to="/movie">
+          Movie
+        </Link>
+        </nav>
       </header>
       <main>
         <Routes>
-          <Route exact path="/movie">
-            <MovieDetails />
-          </Route>
-          <Route path="/">
-            <LandingPage />
-          </Route>
+          
+          <Route path="movie/:movieId" element={<MovieDetails />} />
+          <Route path="/" element={<LandingPage />} />
+    
         </Routes>
       </main>
     </Router>
